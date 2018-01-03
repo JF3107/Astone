@@ -1,0 +1,124 @@
+<!-- 如何让元素 垂直+水平 居中 -->
+
+<html>
+<head>
+    <title>JUST TEST</title>
+    <style type="text/css">
+        .wrp {
+            width: 500px;
+            height: 500px;
+            background-color: #0022df;
+        }
+        .con {
+            width: 250px;
+            height: 250px;
+            background-color: #aa0021;
+        }
+    </style>
+    <!-- 方法一 绝对定位，TLRB全0，MarginAUTO【学名：绝对定位+margin: auto】【首选】 -->
+    <!-- <style type="text/css">
+        .wrapper {
+            position: relative;
+        }
+        .content {
+            position: absolute;
+            top: 0; 
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto; /* 相当于margin: 125 125 125 125; */
+        }
+    </style> -->
+    <!-- 方法二 绝对定位，TL50%，MTL25%【学名：绝对定位，margin反向偏移】 -->
+    <!-- <style type="text/css">
+        .wrapper {
+            position: relative;
+        }
+        .content {
+            position: absolute;
+            top: 50%; 
+            left: 50%;
+            /* margin: -25% 0 0 -25%; */
+            margin: -125 0 0 -125;
+            padding: 0;/* padding 会填充*/
+        }
+    </style> -->
+    <!-- 方法三 绝对定位，TL50%，transform: translate(-50%,-50%)【学名：绝对定位+transform反向偏移】 -->
+    <!-- <style type="text/css">
+        .wrapper {
+            position: relative;
+        }
+        .content {
+            position: absolute;
+            margin: auto;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style> -->
+    <!-- 方法四 【display: table】 -->
+    <!-- 实践  【失败】 -->
+    <!-- <style type="text/css">
+        .wrapper {
+            display: table;
+        }
+        .subwrapper {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .content {
+            /* width: auto;
+            height: auto;
+            max-height: 80%;
+            max-width: 80%; */
+        }
+    </style> -->
+    <!-- 方法五 【display: inline-block】wrp:text-align:center, ctn:display:inline-block+vertical-align:middle -->
+    <!-- 然后wrp加after伪元素：同样display:inline-block+vertical-align:middle，再：content:''(空),margin:-0.25em(强记！),height:100% -->
+    <!-- <style type="text/css">
+        .wrapper {
+            text-align: center;
+        }
+        .content {
+            display: inline-block;
+            vertical-align: middle;
+            /* width: auto;  这些都不要！！（wh0,mwh90%...不要）
+            height: auto;
+            max-width: 90%;
+            max-height: 90%; */
+        }
+        .wrapper:after {
+            content: '';/* 这个必须！ */
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+            margin: -0.25em;/* 正45° 1mm左右的移动 */
+        }
+    </style> -->
+    <!-- 方法六 【display: flex-box】-->
+    <!-- <style type="text/css">
+        .wrapper {
+            display: flex;/* 下面的a-i, j-c都是隶属于 flex下 */
+            align-items: center;/* 垂直居中 */
+            justify-content: center;/* 水平居中。....a-i,j-c结合、即为“居中” */
+        }
+        .content {
+            /* width: auto;   wh auto + max-wl xx% 都不要！只会让结果显示不出【不需要问原因】
+            height: auto;
+            max-width: 90%;
+            max-height: 90%; */
+            /* 也就是说：只需要在wrapper层面做好flex纵横居中就好！ */
+        }
+    </style> -->
+</head>
+
+<body>
+    <div class="wrp wrapper">
+        <!-- div.subwrapper是 方法四 专用 -->
+        <!-- <div class="subwrapper"> -->
+        <div class="con content">
+        </div>
+        <!-- </div> -->
+    </div>
+</body>
+</html>
