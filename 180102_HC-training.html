@@ -40,7 +40,7 @@
             left: 50%;
             /* margin: -25% 0 0 -25%; */
             margin: -125 0 0 -125;
-            padding: 0;/* padding 会填充*/
+            /*padding: 0; padding 会填充*/
         }
     </style> -->
     <!-- 方法三 绝对定位，TL50%，transform: translate(-50%,-50%)【学名：绝对定位+transform反向偏移】 -->
@@ -57,7 +57,7 @@
         }
     </style> -->
     <!-- 方法四 【display: table】 -->
-    <!-- 实践  【失败】 -->
+    <!-- 实践  曾失败.. 0115【已成功】 -->
     <!-- <style type="text/css">
         .wrapper {
             display: table;
@@ -65,12 +65,12 @@
         .subwrapper {
             display: table-cell;
             vertical-align: middle;
-        }
-        .content {
-            /* width: auto;
+            width: auto;
             height: auto;
             max-height: 80%;
-            max-width: 80%; */
+            max-width: 80%; 
+        }
+        .content {
         }
     </style> -->
     <!-- 方法五 【display: inline-block】wrp:text-align:center, ctn:display:inline-block+vertical-align:middle -->
