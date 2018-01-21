@@ -1,16 +1,9 @@
 var http = require('http');
 var url = require('url');
 
-// http.createServer(function(request,response){
-//     response.writeHead(200, {"Content-Type": "text/plain"});
-//     response.write("Hello World");
-//     response.end();
-// }).listen(8888);
-
 function start(route, handle) {//server（服务器）函数需参：①路由函数 ②处理函数 >> 路由函 套 处理函
     http.createServer(function(request,response){
         var pathname = url.parse(request.url).pathname;
-        console.log("Request for "+ pathname +" received");
         var content = route(handle, pathname);
         response.writeHead(200, {"Content-Type": "text/plain"});
         response.write(content);
