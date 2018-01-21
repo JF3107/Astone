@@ -1,7 +1,8 @@
 
 var exec = require("child_process").exec;
+var querystring = require("querystring");
 
-function start(response) {
+function start(response, postData) {
     console.log("Request handler 'start' was called.");
 
     var body = '<hmtl>'+
@@ -21,11 +22,11 @@ function start(response) {
     response.end();
 }
 
-function upload(response) {
+function upload(response,  postData) {
     // return "Hello UPLOAD";
     console.log("Request handler 'upload' was called.");
     response.writeHead(200,{"content-Type":"text/plain"});
-    response.write("hder:  UPLOAD>>");
+    response.write("You've sent >>"+querystring.parse(postData).text);
     response.end();
 }
 
