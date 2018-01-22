@@ -1,0 +1,24 @@
+{
+  "name": "0115_njs",
+  "version": "1.0.0",
+  "description": "this is a pkgjson in my first NJS >>",
+  "main": "index.js",
+  "dependencies": {
+    "formidable": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JF3107/Astone.git"
+  },
+  "author": "JF3107",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JF3107/Astone/issues"
+  },
+  "homepage": "https://github.com/JF3107/Astone#readme"
+}

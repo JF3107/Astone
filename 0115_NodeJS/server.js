@@ -3,7 +3,12 @@ var url = require('url');
 
 function start(route, handle) {//server（服务器）函数需参：①路由函数 ②处理函数 >> 路由函 套 处理函
     http.createServer(function(request,response){
+        console.log(request.method);
         var postData = "";
+        /**
+         * request.url已经是'/upload'的字符串了; 
+         * url.parse(request.url)倒是格式化成对象字符串了（其中有一个key是pathname）
+         */
         var pathname = url.parse(request.url).pathname;
         // var content = route(handle, pathname);
         request.setEncoding("utf8");//就是“全小写加数字” >> utf8
