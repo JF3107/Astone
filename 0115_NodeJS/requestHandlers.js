@@ -1,9 +1,10 @@
 
-var exec = require("child_process").exec;
+// var exec = require("child_process").exec;
 var querystring = require("querystring");
 var fs = require("fs");
+var formidable = require("formidable");
 
-function start(response, postData) {
+function start(response) {
     console.log("Request handler 'start' was called.");
 
     var body = '<hmtl>'+
@@ -11,9 +12,9 @@ function start(response, postData) {
         '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'+
         '</head>'+
         '<body>'+
-        '<form action="/upload" method="post">'+
-        '<textarea name="text" rows="20" cols="60"></textarea>'+
-        '<input type="submit" value="Submit Text" />'+
+        '<form action="/upload" enctype="multipart/form-data" method="post">'+
+        '<input type="file" name="upload" multiple="multiple">' + 
+        '<input type="submit" value="Upload Image" />'+ 
         '</form>'+
         '</body>'+
         '</html>';
@@ -23,15 +24,40 @@ function start(response, postData) {
     response.end();
 }
 
-function upload(response,  postData) {
+function upload(response,  request) {
     // return "Hello UPLOAD";
     console.log("Request handler 'upload' was called.");
-    response.writeHead(200,{"content-Type":"text/plain"});
-    response.write("You've sent >>"+querystring.parse(postData).text);
-    response.end();
+
+    var form = new formidable.IncomingForm();
+    // form.uploadDir = 'tmp';//写一个临时路径, 解决fs.renameSync() 会发生的“移动文件权限问题”
+
+    console.log("about to parse");
+    // form.parse(request, function(error, fields, files){
+    //     console.log("parsing done");
+    //     fs.renameSync(files.upload.path, "./tmp/test.png");
+    //     response.writeHead(200, {"Content-Type":"text/html"});
+    //     response.write("received image: <br />");
+    //     response.write("<img src='/show' />");
+    //     response.end();
+    // });
+    form.parse(request, function(error, fields, files){
+        console.log("parsing done");
+        // fs.renameSync(files.upload.path, "./tmp/test.png");
+        var readStream = fs.createReadStream(files.upload.path);
+        var writeStream = fs.createWriteStream("./tmp/test.png");
+        readStream.pip(writeStream);
+        readStream.on("end", function(){
+            fs.unlinkSync(files.upload.path);
+        });
+
+        response.writeHead(200, {"Content-Type":"text/html"});
+        response.write("received image: <br />");
+        response.write("<img src='/show' />");
+        response.end();
+    });
 }
 
-function show(response,  postData){
+function show(response){
     console.log("Request handler 'show' was called.");
     fs.readFile("./tmp/test.png", "binary", function(error, file){
         if(error){
