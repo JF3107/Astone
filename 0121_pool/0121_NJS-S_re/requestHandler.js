@@ -1,13 +1,14 @@
 /** 
  * 具体处理函数（对应router），全在这里[这里就是处理区]
  */
+var exec = require("child_process").exec;
+
 function start(){
-    function sleep(ms){
-        var slee_start = new Date().getTime();
-        while(new Date().getTime() < slee_start + ms);
-    }
-    sleep(10000);
-    return "now shift to SSSSTART!!"
+    var content = "empty";
+    exec("dir", function(error, stdout, stderr){
+        content = stdout;
+    });
+    return content;
 }
 
 function upload(){

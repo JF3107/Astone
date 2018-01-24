@@ -1,0 +1,20 @@
+{
+  "name": "0121_njs-s_re",
+  "version": "1.0.0",
+  "description": "0121 ben >> NJS course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JF3107/Astone.git"
+  },
+  "author": "JF3107",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JF3107/Astone/issues"
+  },
+  "homepage": "https://github.com/JF3107/Astone#readme"
+}
