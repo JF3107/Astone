@@ -4,11 +4,12 @@
 var exec = require("child_process").exec;
 
 function start(){
-    var content = "empty";
-    exec("dir", function(error, stdout, stderr){
-        content = stdout;
-    });
-    return content;
+    // var content = "empty";
+    // exec("dir", function(error, stdout, stderr){
+    //     content = stdout;
+    // });
+    // return content;
+    return "HEY!...IT IS START!!...in 0127, pu-tu-center!"
 }
 
 function upload(){
