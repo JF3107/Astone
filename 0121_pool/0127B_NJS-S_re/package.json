@@ -1,0 +1,15 @@
+{
+  "name": "0127b_njs-s_re",
+  "version": "1.0.0",
+  "description": "hahaha!!   twice a day!~~",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "JF3107",
+  "license": "ISC",
+  "dependencies": {
+    "formidable": "^1.1.1"
+  }
+}
