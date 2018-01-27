@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/JF3107/Astone/issues"
   },
-  "homepage": "https://github.com/JF3107/Astone#readme"
+  "homepage": "https://github.com/JF3107/Astone#readme",
+  "dependencies": {
+    "formidable": "^1.1.1"
+  }
 }

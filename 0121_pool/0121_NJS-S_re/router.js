@@ -1,12 +1,13 @@
 /** router是分发，分发给requestHandler去处理。
  * route的作用就是配对pathname<==>handler
- * request>>提取pathname>>router>>requestHandler(对应函数)
  */
-function route(handle, pathname){
+function route(handle, pathname, response, request){
     if(typeof handle[pathname] === "function"){
-        return handle[pathname]();
+        handle[pathname](response, request);
     }else{
-        return "404 not found[pathname not >> a fucntion!!]";
+        response.writeHead(404,{"Content-Type":"text/plain"});
+        response.write("404 not found");
+        response.end();
     }
 }
 exports.route = route;
