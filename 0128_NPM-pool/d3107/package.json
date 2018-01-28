@@ -1,0 +1,19 @@
+{
+  "name": "d3107",
+  "version": "1.0.0",
+  "description": "YOYOGI's first npm package..",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JF3107/Astone.git"
+  },
+  "author": "JF3107",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JF3107/Astone/issues"
+  },
+  "homepage": "https://github.com/JF3107/Astone#readme"
+}

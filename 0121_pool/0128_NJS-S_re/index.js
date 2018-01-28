@@ -9,4 +9,6 @@ handle["/start"] = requestHandler.start;
 handle["/upload"] = requestHandler.upload;
 handle["/show"] = requestHandler.show;
 
+console.log("HHhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+
 server.start(router.route, handle);
