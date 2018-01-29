@@ -8,7 +8,28 @@
     <body>
         <div id="example"></div>
         <script type="text/babel">
-            
+        //R.cC中的render方法中的return需要： （）圆括号，并以“ ；” 结尾。
+        //第二层的return <>结束后也应以 “ ；” 结尾。
+            var ListElement = React.createClass({
+                render: function(){
+                    return (
+                        <ol>
+                            {
+                                React.Children.map(this.props.children, function(child){
+                                    return <li>{child}</li>;
+                                })
+                            }
+                        </ol>
+                    );
+                }
+            });
+            ReactDOM.render(
+                <ListElement>
+                    <span>HELLO</span>
+                    <span>yoyogi</span>
+                </ListElement>,
+                document.getElementById("example")
+            );
         </script>
     </body>
 </html>

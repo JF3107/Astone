@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../build/react.js"></script>
+        <script src="../build/react-dom.js"></script>
+        <script src="../build/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="example"></div>
+        <script type="text/babel">
+        //React.PropTypes. ...P大写，this.props. ...props有s
+        //R.cC里面是对象，{}里面的属性之间  逗号“ ，”间隔 
+            var data = "123";
+            var MTitle = React.createClass({
+                // propTypes: {
+                //     title: React.PropTypes.string.isRequired,
+                // },
+                //  >>lesson, return后{}后，也要加“ ；”
+                getDefaultProps: function(){
+                    return {
+                        title: "HELLO WORLD"
+                    };
+                },
+                render: function(){
+                    return <h1>{this.props.title}</h1>;
+                }
+            });
+            //如果上面R.cC中有 getDefaultProps（对title的）设置，那么下面组件标签里面就不用出现“title属性”
+            ReactDOM.render(
+                <MTitle />,
+                document.getElementById("example")
+            );
+        </script>
+    </body>
+</html>
