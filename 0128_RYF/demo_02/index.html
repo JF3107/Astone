@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../build/react.js"></script>
+        <script src="../build/react-dom.js"></script>
+        <script src="../build/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="example"></div>
+        <script type="text/babel">
+            var names =['Alice', 'Bill', 'Cindy'];
+            //lesson: n.m() 和 d.g()后面，不要标点;标签后面加标点
+            //lesson: n.m里面的function里面要 return HTML标签
+            //lesson: return的标签里面，Hello-不需要再加“”，name属于 调用/JS代码区 ，要加{}
+            ReactDOM.render(
+                <div>
+                {
+                    names.map(function(name){
+                        return <div>Hello, {name}!</div>
+                    })
+                }
+                </div>,
+                document.getElementById("example")
+            );
+        </script>
+    </body>
+</html>
