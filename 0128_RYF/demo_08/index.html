@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../build/react.js"></script>
+        <script src="../build/react-dom.js"></script>
+        <script src="../build/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="example"></div>
+        <script type="text/babel">
+            var Compo = React.createClass({
+                //get-IS.. 不是 set
+                //直接return state具体变量！
+                //return 后面{}是对象/是给JS用的！return后面（）是给HTML用的！
+                getInitialState: function(){
+                    return {liked: false};
+                },
+                //setState是一个方法，属于组件、要用this来调用
+                //方法（）内勿忘衬以{}； 里面直接放state变量，liked
+                //引用state变量（liked），要用：this.state.liked
+                /////  handleClick: function(event){...}  这里的event传不传、不care
+                handleClick: function(){
+                    // setState: this.state.liked = !this.state.liked
+                    this.setState({liked: !this.state.liked});
+                },
+                render: function(){
+                    var text = this.state.liked ? "just like":"don't like";
+                    return (
+                        <p onClick={this.handleClick}>
+                         you {text} it! (Click to reverse)
+                        </p>
+                    )
+                }
+            });
+            ReactDOM.render(
+                <Compo />,
+                document.getElementById("example")
+            );
+        </script>
+    </body>
+</html>

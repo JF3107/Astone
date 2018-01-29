@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../build/react.js"></script>
+        <script src="../build/react-dom.js"></script>
+        <script src="../build/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="example"></div>
+        <script type="text/babel">
+        //render中的标签中的onClick中：{}中插入的是JS代码：直接用“本组件”， this.属性！
+            var Compo = React.createClass({
+                //refs在this下，THX
+                handleClick: function(){
+                    this.refs.myInput.focus();
+                },
+                render: function(){
+                    return (
+                        <div>
+                            <input type="text" ref="myInput" />
+                            <input type="button" value="Focus to 'text'" onClick={this.handleClick} />    
+                        </div>
+                    );
+                }
+            });
+            ReactDOM.render(
+                <Compo />,
+                document.getElementById("example")
+            );
+        </script>
+    </body>
+</html>

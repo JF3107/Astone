@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../build/react.js"></script>
+        <script src="../build/react-dom.js"></script>
+        <script src="../build/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="example"></div>
+        <script type="text/babel">
+            var Compo = React.createClass({
+                getInitialState: function(){
+                    return {asa: "Hello"};
+                },
+                //这时候要用到event了，event.target.value 就对应input那个value！！
+                handleChange: function(event){
+                    this.setState({
+                        asa: event.target.value,
+                    });
+                },
+                //注意！：render的return只能有一个定层标签
+                render: function(){
+                    var value = this.state.asa;
+                    return (
+                        <div>
+                            <input type="text" value={value} onChange={this.handleChange} />
+                            <p>{value}</p>
+                        </div>
+                    );
+                }
+            });
+            ReactDOM.render(
+                <Compo />,
+                document.getElementById("example")
+            );
+        </script>
+    </body>
+</html>
