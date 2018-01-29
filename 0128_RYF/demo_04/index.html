@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../build/react.js"></script>
+        <script src="../build/react-dom.js"></script>
+        <script src="../build/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="example"></div>
+        <script type="text/babel">
+            //lesson: R.createClass方法内另有一个{},({})里面才是render属性
+            //render属性值是一个无参数匿名函数
+            //render属性值的匿名函数中的return一定要；--分号结尾
+            //this.props.xxx   要this
+            //RDOM.render方法中间隔 “，”， 不得加“；”。
+            var HelloCompo = React.createClass({
+                render: function() {
+                    return <h1>Hello, {this.props.name}</h1>;
+                }
+            });
+            ReactDOM.render(
+                <HelloCompo name="YOYOGI" />,
+                document.getElementById("example")
+            );
+        </script>
+    </body>
+</html>
